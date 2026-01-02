@@ -71,6 +71,7 @@ GROQ_API_KEY=your_groq_api_key
 # HuggingFace (Embeddings)
 EMBED_KEY=your_huggingface_read_token
 
+```
 
 📦 Install Dependencies
 pip install -r requirements.txt
@@ -127,15 +128,15 @@ Use it as EMBED_KEY
 
 📥 Document Ingestion Flow
 PDFs
- ↓
+↓
 PyPDFDirectoryLoader
- ↓
+↓
 LangChain Documents
- ↓
+↓
 Text Splitter
- ↓
+↓
 Embeddings
- ↓
+↓
 Pinecone
 
 Correct Import (LangChain v0.2+)
@@ -169,4 +170,3 @@ The app prints:
 🤖 LLM response
 
 This helps debug semantic search quality.
-```
