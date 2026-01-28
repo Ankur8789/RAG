@@ -59,7 +59,8 @@ vector_store = PineconeVectorStore(index = created_index, embedding=hf_embedding
 
 loader = PyPDFDirectoryLoader("docs/")
 
-# before doing any further , it is better to change that into Langchain Documents
+# before doing any further , it is better to change that into Langchain Documents Cause it has Metadata and everything related to it , you can add
+# your own custom meta data if you want , but by default changing into Langchain doc , will help
 # By default it is getting changed into Document type (Lang Chain)
 raw_docs = loader.load()
 
