@@ -1,0 +1,13 @@
+Q - Why LangChain Document Object :
+-> A **LangChain `Document`** is necessary because it provides a standardized, structured way to carry **text and its context together throughout the entire LLM pipeline**. 
+   Instead of handling raw strings that easily lose information, a `Document` tightly couples the actual content (`page_content`) with its metadata (such as source, page number, or author). 
+   This structure allows LangChain components—like text splitters, embedding models, vector stores, and retrievers—to work seamlessly with the same object without custom glue code. 
+   When documents are split into chunks, the metadata is automatically preserved, enabling accurate source attribution and traceability during retrieval and RAG generation.
+   Without the `Document` abstraction, developers would need to manually manage text, metadata, and identifiers at every stage, leading to brittle pipelines and loss of context—something that becomes especially costly in production-scale systems.
+
+Q - Why Recursive Text Splitters
+-> Recursive text splitters are considered the best default choice because they preserve semantic structure while remaining fast, cheap, and robust for real-world data. 
+   Instead of blindly cutting text at a fixed length, a recursive splitter attempts to break content using natural boundaries—such as paragraphs, lines, and spaces—only falling back to character-level splitting when necessary.
+   This approach minimizes mid-sentence and mid-concept cuts, which significantly improves embedding quality and downstream retrieval accuracy in RAG systems. 
+   At the same time, recursive splitters are model-agnostic, require no tokenizers or extra API calls, and handle messy inputs like PDFs and scraped documents gracefully. 
+   The result is a practical balance of meaning preservation, performance, and simplicity, which is why recursive text splitters are widely used in production-grade LangChain pipelines.
